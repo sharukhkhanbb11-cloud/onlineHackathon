@@ -1,0 +1,22 @@
+{
+  "version": 2,
+  "outputDirectory": "src/main/webapp",
+  "cleanUrls": false,
+  "rewrites": [
+    { "source": "/api/dashboard.php", "destination": "/api/dashboard" },
+    { "source": "/api/trust-checks.php", "destination": "/api/trust-checks" },
+    { "source": "/api/questions.php", "destination": "/api/questions" },
+    { "source": "/api/issue-details.php", "destination": "/api/issue-details" },
+    { "source": "/api/remediate.php", "destination": "/api/remediate" }
+  ],
+  "headers": [
+    {
+      "source": "/(.*)",
+      "headers": [
+        { "key": "X-Content-Type-Options", "value": "nosniff" },
+        { "key": "X-Frame-Options", "value": "DENY" },
+        { "key": "X-XSS-Protection", "value": "1; mode=block" }
+      ]
+    }
+  ]
+}
